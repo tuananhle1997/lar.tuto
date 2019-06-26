@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+/*
+ * route cho admin
+ */
+Route:prefix('admin')->group(function (){
+    // gom nhóm các route cho phần admin
+
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+});
